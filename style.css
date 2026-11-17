@@ -1,0 +1,339 @@
+/* ==========================================================================
+   1. Fonts and Variables
+   ========================================================================== */
+
+/* Define reusable colors and font families across the entire stylesheet */
+:root {
+    --bg-color: #f8f6f2;       /* Warm off-white page background */
+    --text-color: #222222;     /* Dark charcoal for readable body text */
+    --accent-color: #1b365d;   /* Muted deep navy for headings, links, and borders */
+    --card-bg: #ffffff;        /* Plain white background for cards */
+    --border-color: #dcd8d0;   /* Light warm grey for subtle borders */
+    --heading-font: 'Lora', Georgia, serif;
+    --body-font: 'Inter', Arial, sans-serif;
+}
+
+/* Include padding and border inside element widths so layouts do not overflow */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Element selector: base typography and page colors */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Element selectors: use the serif font for all headings */
+h1, h2, h3 {
+    font-family: var(--heading-font);
+    color: var(--accent-color);
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+/* Element selector: space out paragraphs naturally */
+p {
+    margin-bottom: 14px;
+}
+
+/* Element selector: style links with the deep navy accent color */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Class selector: center content on the page with a max width of 900px */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+
+/* ==========================================================================
+   2. Navbar
+   ========================================================================== */
+
+/* ID selector: keep the navigation bar stuck to the top of the screen when scrolling */
+#navbar {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 0;
+    z-index: 100;
+}
+
+/* Use flexbox to place the name on the left and section links on the right */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style the site owner's name in the navbar like a clean heading */
+.nav-brand {
+    font-family: var(--heading-font);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.nav-brand:hover {
+    text-decoration: none;
+}
+
+/* Remove bullet points and arrange navigation items in a horizontal row */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+}
+
+/* Class selector: navigation links with a bottom border that appears on hover */
+.nav-link {
+    color: var(--text-color);
+    font-size: 15px;
+    font-weight: 500;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    text-decoration: none;
+}
+
+
+/* ==========================================================================
+   3. Sections
+   ========================================================================== */
+
+/* ID selector: intro header area with generous top and bottom spacing */
+#intro {
+    padding: 56px 0 40px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Align the circular profile photo and intro text side by side using flexbox */
+.intro-container {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+/* Class selector: make the profile image circular with a subtle border */
+.profile-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
+    object-fit: cover; /* Prevents the rectangular photo from stretching inside the circle */
+    display: block;
+}
+
+/* Style the one-line tagline directly under the main name */
+.tagline {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+}
+
+/* Class selector: consistent vertical spacing for each main section */
+.section {
+    padding: 36px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ID selectors: specific section adjustments */
+#about p:last-child {
+    margin-bottom: 0;
+}
+
+#contact {
+    border-bottom: none;
+}
+
+/* Class selector: section headings with a small accent underline */
+.section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+}
+
+
+/* ==========================================================================
+   4. Cards
+   ========================================================================== */
+
+/* Class selector: clean white box with a light border and soft internal padding */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+}
+
+/* Remove extra bottom margin on the last paragraph inside any card */
+.card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Place the institution/company name and the date on opposite ends of the row */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+/* Style the date text on the right side of a card header */
+.card-date {
+    font-size: 14px;
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+/* Emphasize the degree or role title inside a card */
+.card-subtitle {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Bulleted list for experience points inside a card */
+.card-list {
+    padding-left: 20px;
+    margin-bottom: 12px;
+}
+
+.card-list:last-child {
+    margin-bottom: 0;
+}
+
+.card-list li {
+    margin-bottom: 6px;
+}
+
+.card-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Use flexbox with wrapping to lay out the skill cards neatly in rows */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Adjust card padding for individual skill badges */
+.skill-card {
+    padding: 12px 18px;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+/* Highlight skill cards slightly when hovered */
+.skill-card:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* Clean list inside the contact card */
+.contact-list {
+    list-style: none;
+    margin-top: 12px;
+}
+
+.contact-list li {
+    margin-bottom: 8px;
+}
+
+.contact-list li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================================================
+   5. Footer
+   ========================================================================== */
+
+/* Element selector: simple centered footer at the bottom of the page */
+footer {
+    border-top: 1px solid var(--border-color);
+    padding: 28px 0;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================================================
+   6. Responsive
+   ========================================================================== */
+
+/* Media query for tablets and mobile phones (screens 650px wide or smaller) */
+@media (max-width: 650px) {
+    /* Stack the navbar brand and links vertically on narrow screens */
+    .nav-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    /* Stack the profile photo above the intro text and center-align them */
+    .intro-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    /* Stack card titles and dates vertically so they do not crowd each other */
+    .card-header {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    /* Make skill cards stretch nicely on small screens */
+    .skill-card {
+        width: 100%;
+        text-align: center;
+    }
+}
